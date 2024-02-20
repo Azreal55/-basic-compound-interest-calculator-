@@ -1,38 +1,30 @@
 //this code asks the user how it compounds 
 function compoundInterest(){
 const typeOfcompound= prompt("does your investment compound continously, daily, monthly, or annually");
+const principalAmount= prompt("what is your principal amount");
+const iRate= prompt("what is your interest rate expressed as a decimal");
+const times = prompt("how long is it compounded for in years");
  if (typeOfcompound === "daily"){
+   var compounds= 365;
     daily1();
  }else if (typeOfcompound === "continously"){
     continously1();
  }else if (typeOfcompound === "monthly"){
+   var compounds= 12;
     daily1();
  }else if(typeOfcompound === "annually"){
+   var compounds= 1;
     daily1();
  }
 
 // this code throws back the answer if it compounds daily
 function daily1(){
-const userInput= prompt("what is your principal amount");
-const userInput1= prompt("what is your interest rate expressed as a decimal");
-const userInput2= prompt("how often does it compound ");
-const userInput3= prompt("how long is it compounded for");
-let principalAmount= parseFloat(userInput);
-let iRate= parseFloat(userInput1);
-let compounds= parseFloat(userInput2);
-let times= parseFloat(userInput3);
 let answer= principalAmount *(1+(iRate/compounds))**(compounds*times)
 console.log(answer);
 }
 
 // this code throws back the answer if it compounds continously
 function continously1(){
-    const userInput= prompt("what is your principal amount");
-    const userInput1= prompt("what is your interest rate expressed as a decimal");
-    const userInput3= prompt("how long is it compounded for");
-    let principalAmount= parseFloat(userInput);
-    let iRate= parseFloat(userInput1);
-    let times= parseFloat(userInput3);
     let answer= principalAmount *Math.E**(iRate*times)
     console.log(answer);
     }
